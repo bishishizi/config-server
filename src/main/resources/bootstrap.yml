@@ -1,0 +1,34 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/bishishizi/config-repository
+  rabbitmq:
+    host: 192.168.47.128
+    port: 5672
+    username: admin
+    password: 123456
+#          脱离客户端,从本地取值
+#          uri: file:///${user.home}/config-server
+#          username: peinanwei
+#          password: wwc123456
+#          搜索目录
+#          default-label: master
+#          search-paths:
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/
+security:
+  user:
+    name: admin
+    password: 123456
+#    刷新配置时关闭验证
+management:
+  security:
+    enabled: false
